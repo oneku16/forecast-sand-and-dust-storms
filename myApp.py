@@ -21,7 +21,7 @@ pages = streamlit.sidebar.selectbox(
 )
 
 if pages == 'Analyze':
-    streamlit.subheader("Air Quality in Bishkek")
+    streamlit.subheader("Air quality in Bishkek region")
     option = streamlit.selectbox(
         "Visualize graph Based on",
         (
@@ -32,21 +32,24 @@ if pages == 'Analyze':
     graph_1 = px.line(bishkek_data, x="Date", y=option, color='Specie')
     streamlit.plotly_chart(graph_1)
 
-    streamlit.subheader("Quality of Air in Bishkek from 2019/02 to 2022/11")
+    streamlit.subheader("Quality of air in Bishkek region from 2019/02 to 2022/11")
     graph_2 = px.pie(data_Q, names='AQI Category')
     streamlit.plotly_chart(graph_2)
 
-    streamlit.subheader('Concentration of pollutants in Bishkek Air')
-    opt2 = streamlit.selectbox("Which pollutant you want to visualize?", (
+    streamlit.subheader('Concentration of pollutants in Bishkek region air')
+    options = streamlit.selectbox("What specific environmental pollutant are you interested in visualizing?", (
             'PM1(mcg/m³)',
             'PM10(mcg/m³)',
             'PM2.5(mcg/m³)',
             'NO(mcg/m³)',
             'NO2(mcg/m³)',
             'SO2(mcg/m³)',
-            'Temperature(°C)'
+            'Temperature(°C)',
+            'CH4'
     ))
-    graph_3 = px.line(pollutants_D, x="Day", y=opt2)
+    if options == 'CH4':
+        options = 'CH4 '
+    graph_3 = px.line(pollutants_D, x="Day", y=options)
     streamlit.plotly_chart(graph_3)
 
 if pages == 'Predictions':
