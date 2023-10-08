@@ -21,7 +21,7 @@ pages = streamlit.sidebar.selectbox(
 )
 
 if pages == 'Analyze':
-    streamlit.subheader("Air quality in Bishkek region")
+    streamlit.subheader("Air quality in Central Asian region")
     option = streamlit.selectbox(
         "Visualize graph Based on",
         (
@@ -32,11 +32,11 @@ if pages == 'Analyze':
     graph_1 = px.line(bishkek_data, x="Date", y=option, color='Specie')
     streamlit.plotly_chart(graph_1)
 
-    streamlit.subheader("Quality of air in Bishkek region from 2019/02 to 2022/11")
+    streamlit.subheader("Quality of air in Central Asian region from 2019/02 to 2022/11")
     graph_2 = px.pie(data_Q, names='AQI Category')
     streamlit.plotly_chart(graph_2)
 
-    streamlit.subheader('Concentration of pollutants in Bishkek region air')
+    streamlit.subheader('Concentration of pollutants in Central Asian region air')
     options = streamlit.selectbox("What specific environmental pollutant are you interested in visualizing?", (
             'PM1(mcg/m³)',
             'PM10(mcg/m³)',
@@ -62,7 +62,7 @@ if pages == 'Predictions':
 
     if models == 'Classification':
         option = streamlit.selectbox(
-            'You can use any of the given modules to predict the quality of air in Bishkek',
+            'You can use any of the given modules to predict the quality of air in Central Asian',
             (
                     'KNN',
             )
