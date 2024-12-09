@@ -19,7 +19,7 @@ g
     ```
 * Then, Git clone this repo to your PC
     ```bash
-        $ git clone https://github.com/oneku16/nasa-hackathon.git
+        $ git clone https://github.com/oneku16/forecast-sand-and-dust-storms
     ```
 
 * #### Dependencies
